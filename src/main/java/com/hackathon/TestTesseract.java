@@ -15,7 +15,7 @@ public class TestTesseract {
 
     public static void main(String[] args) {
         // 1. Input file
-        File inputFile = new File("src\\test photos\\russian.jpg");
+        File inputFile = new File("src\\test photos\\korean.png");
         File outputFile = new File("src\\test photos\\output.png");
 
         try {
@@ -31,12 +31,12 @@ public class TestTesseract {
 
             // 5. Run Tesseract OCR
             ITesseract tesseract = new Tesseract();
-            tesseract.setDatapath("D:\\Software\\Tesseract\\tessdata"); // path to tessdata folder
-            // tesseract.setLanguage("jap+eng"); // Russian + English
+            tesseract.setDatapath("D:\\Software\\Tesseract\\tessdata_fast-main"); // path to tessdata folder
+            tesseract.setLanguage("kor"); // Russian + English
             tesseract.setOcrEngineMode(1);
 
 
-            String result = tesseract.doOCR(inputFile); // or use outputFile
+            String result = tesseract.doOCR(originalImage); // or use outputFile
             System.out.println("\nOCR Result:\n" + result);
 
         } catch (IOException | TesseractException e) {
